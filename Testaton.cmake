@@ -11,7 +11,7 @@ MACRO(SUBDIRLIST result curdir)
   SET(${result} ${dirlist})
 ENDMACRO()
 
-SUBDIRLIST(SUBDIRS ${CMAKE_CURRENT_LIST_DIR})
+SUBDIRLIST(SUBDIRS ${CMAKE_CURRENT_SOURCE_DIR})
 
 FOREACH(subdir ${SUBDIRS}) # Iterate over subdirectories and create tests for each .cpp
   file(GLOB_RECURSE tests "*.cpp")
