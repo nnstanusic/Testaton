@@ -18,10 +18,11 @@ FOREACH(subdir ${SUBDIRS}) # Iterate over subdirectories and create tests for ea
 
   FOREACH(test ${tests})
     string(REGEX REPLACE ".*/(.*).cpp" "\\1" target_name ${test})
-
-    add_executable("${subdir}_${target_name}" ${test})
+    set(target_name "${subdir}_${target_name}")
+    add_executable("${target_name}" ${test})
     target_link_libraries(${target_name} PRIVATE ${testaton_deps})
-    add_test(NAME "${subdir};${target_name}" COMMAND ${target_name})
+
     message(STATUS "Adding test: ${test}")
+    add_test(NAME "${subdir};${target_name}" COMMAND ${target_name})
   ENDFOREACH()
 ENDFOREACH()
