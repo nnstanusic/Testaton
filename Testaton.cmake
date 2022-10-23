@@ -26,7 +26,7 @@ FOREACH(subdir ${SUBDIRS}) # Iterate over subdirectories and create tests for ea
     list(APPEND _TESTATON_TEST_LIST ${test})
   ENDFOREACH()
 
-  create_test_sourcelist(Tests ${_TESTATON_TEST_LIST})
+  create_test_sourcelist(Tests unit_tests.cpp ${_TESTATON_TEST_LIST})
 
   add_executable(unit_tests ${Tests})
   target_link_libraries(unit_tests PRIVATE ${testaton_deps})
